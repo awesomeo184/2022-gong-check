@@ -23,7 +23,7 @@ class JobDocumentation extends DocumentationTest {
 
         @Test
         void 작업_조회에_성공한다() {
-            Host host = Host_생성("1234");
+            Host host = Host_생성("1234", 1234L);
             Space space = Space_생성(host, "잠실");
             when(jobService.findPage(anyLong(), anyLong(), any())).thenReturn(
                     JobsResponse.of(List.of(

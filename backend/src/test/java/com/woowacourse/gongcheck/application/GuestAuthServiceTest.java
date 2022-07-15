@@ -40,6 +40,8 @@ class GuestAuthServiceTest {
         void 비밀번호가_틀리면_예외가_발생한다() {
             Host host = hostRepository.save(Host.builder()
                     .spacePassword("0123")
+                    .githubId(1234L)
+                    .imageUrl("test.com")
                     .createdAt(LocalDateTime.now())
                     .build());
 
@@ -52,6 +54,8 @@ class GuestAuthServiceTest {
         void 정상적으로_토큰을_발행한다() {
             Host host = hostRepository.save(Host.builder()
                     .spacePassword("0123")
+                    .githubId(1234L)
+                    .imageUrl("test.com")
                     .createdAt(LocalDateTime.now())
                     .build());
             GuestTokenResponse token = guestAuthService.createToken(host.getId(), new GuestEnterRequest("0123"));

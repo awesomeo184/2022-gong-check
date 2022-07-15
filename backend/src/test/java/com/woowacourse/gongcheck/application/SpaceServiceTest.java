@@ -34,7 +34,7 @@ class SpaceServiceTest {
 
     @Test
     void 공간을_조회한다() {
-        Host host = hostRepository.save(Host_생성("1234"));
+        Host host = hostRepository.save(Host_생성("1234", 1234L));
         Space space1 = Space_생성(host, "잠실");
         Space space2 = Space_생성(host, "선릉");
         Space space3 = Space_생성(host, "양평같은방");
