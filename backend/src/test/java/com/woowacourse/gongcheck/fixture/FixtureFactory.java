@@ -10,9 +10,11 @@ import java.time.LocalDateTime;
 
 public class FixtureFactory {
 
-    public static Host Host_생성(final String password) {
+    public static Host Host_생성(final String password, final Long githubId) {
         return Host.builder()
                 .spacePassword(password)
+                .githubId(githubId)
+                .imageUrl("test.com")
                 .createdAt(LocalDateTime.now()).build();
     }
 
