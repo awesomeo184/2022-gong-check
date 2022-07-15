@@ -10,19 +10,21 @@ CREATE TABLE host
 (
     id             BIGINT     NOT NULL AUTO_INCREMENT,
     space_password VARCHAR(4) NOT NULL,
+    github_id      BIGINT     NOT NULL UNIQUE,
+    image_url      VARCHAR    NOT NULL,
     created_at     TIMESTAMP  NOT NULL,
-    updated_at     TIMESTAMP  NULL,
+    updated_at     TIMESTAMP NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE space
 (
     id         BIGINT      NOT NULL AUTO_INCREMENT,
-    host_id  BIGINT      NOT NULL,
+    host_id    BIGINT      NOT NULL,
     name       VARCHAR(20) NOT NULL,
-    img_url    VARCHAR     NULL,
+    img_url    VARCHAR NULL,
     created_at TIMESTAMP   NOT NULL,
-    updated_at TIMESTAMP   NULL,
+    updated_at TIMESTAMP NULL,
     PRIMARY KEY (id)
 );
 
@@ -32,7 +34,7 @@ CREATE TABLE job
     space_id   BIGINT      NOT NULL,
     name       VARCHAR(20) NOT NULL,
     created_at TIMESTAMP   NOT NULL,
-    updated_at TIMESTAMP   NULL,
+    updated_at TIMESTAMP NULL,
     PRIMARY KEY (id)
 );
 
@@ -42,7 +44,7 @@ CREATE TABLE task
     section_id BIGINT      NOT NULL,
     name       VARCHAR(50) NOT NULL,
     created_at TIMESTAMP   NOT NULL,
-    updated_at TIMESTAMP   NULL,
+    updated_at TIMESTAMP NULL,
     PRIMARY KEY (id)
 );
 
@@ -52,7 +54,7 @@ CREATE TABLE section
     job_id     BIGINT      NOT NULL,
     name       VARCHAR(20) NOT NULL,
     created_at TIMESTAMP   NOT NULL,
-    updated_at TIMESTAMP   NULL,
+    updated_at TIMESTAMP NULL,
     PRIMARY KEY (id)
 );
 

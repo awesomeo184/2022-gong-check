@@ -26,6 +26,12 @@ public class Host {
     @Column(name = "space_password", length = SPACE_PASSWORD_MAX_LENGTH, nullable = false)
     private String spacePassword;
 
+    @Column(name = "github_id", nullable = false, unique = true)
+    private Long githubId;
+
+    @Column(name = "image_url", nullable = false)
+    private String imageUrl;
+
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
@@ -36,10 +42,13 @@ public class Host {
     }
 
     @Builder
-    public Host(final Long id, final String spacePassword, final LocalDateTime createdAt,
+    public Host(final Long id, final String spacePassword, final Long githubId, final String imageUrl,
+                final LocalDateTime createdAt,
                 final LocalDateTime updatedAt) {
         this.id = id;
         this.spacePassword = spacePassword;
+        this.githubId = githubId;
+        this.imageUrl = imageUrl;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
