@@ -4,6 +4,7 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 
 import com.woowacourse.gongcheck.application.GuestAuthService;
+import com.woowacourse.gongcheck.application.HostService;
 import com.woowacourse.gongcheck.application.ImageUploader;
 import com.woowacourse.gongcheck.application.JjwtTokenProvider;
 import com.woowacourse.gongcheck.application.JobService;
@@ -12,6 +13,7 @@ import com.woowacourse.gongcheck.application.SubmissionService;
 import com.woowacourse.gongcheck.application.TaskService;
 import com.woowacourse.gongcheck.presentation.AuthenticationContext;
 import com.woowacourse.gongcheck.presentation.GuestAuthController;
+import com.woowacourse.gongcheck.presentation.HostController;
 import com.woowacourse.gongcheck.presentation.JobController;
 import com.woowacourse.gongcheck.presentation.SpaceController;
 import com.woowacourse.gongcheck.presentation.SubmissionController;
@@ -32,7 +34,8 @@ import org.springframework.web.context.WebApplicationContext;
         SpaceController.class,
         JobController.class,
         TaskController.class,
-        SubmissionController.class
+        SubmissionController.class,
+        HostController.class
 })
 @ExtendWith(RestDocumentationExtension.class)
 class DocumentationTest {
@@ -53,6 +56,9 @@ class DocumentationTest {
 
     @MockBean
     protected SubmissionService submissionService;
+
+    @MockBean
+    protected HostService hostService;
 
     @MockBean
     protected JjwtTokenProvider jwtTokenProvider;
