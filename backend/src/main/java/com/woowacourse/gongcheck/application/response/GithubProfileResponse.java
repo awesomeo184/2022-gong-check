@@ -8,8 +8,6 @@ import lombok.Getter;
 @Getter
 public class GithubProfileResponse {
 
-    public static final String DEFAULT_SPACE_PASSWORD = "0000";
-    
     @JsonProperty("name")
     private String nickname;
     @JsonProperty("login")
@@ -32,7 +30,6 @@ public class GithubProfileResponse {
 
     public Host toHost() {
         return Host.builder()
-                .spacePassword(DEFAULT_SPACE_PASSWORD)
                 .githubId(getGithubId())
                 .imageUrl(imageUrl)
                 .createdAt(LocalDateTime.now())
